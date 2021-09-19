@@ -9,5 +9,6 @@ services:
       - ./:/usr/src/hnnazm
     ports:
       - 3000:3000
+    command: npm run start
 volumes:
   nodemodules:

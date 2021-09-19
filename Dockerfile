@@ -8,7 +8,6 @@ COPY package.json package-lock.json ./
 FROM setup AS dev
 RUN npm install \
 && npm cache clean --force
-CMD ["npm", "run", "start"]
 
 FROM setup AS prod
 RUN npm install --production

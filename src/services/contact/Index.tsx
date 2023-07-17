@@ -1,19 +1,51 @@
-import {
-  MdEmail,
-  MdSmartphone,
-  MdLink,
-  MdClose
-} from "react-icons/md";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import { MdLink } from "react-icons/md";
 import {
   FaQuoteLeft,
   FaQuoteRight
 } from "react-icons/fa";
+import {
+  TbWorld,
+  TbDeviceMobile,
+  TbCloud,
+  TbTerminal2
+} from "react-icons/tb";
+import { BiSolidFilePdf } from "react-icons/bi";
 
-import BubbleChart from "../../components/BubbleChart";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function Contact() {
+  const expertises = [
+    {
+      field: "Web Application",
+      level: 100,
+      description: "Provide a full stack solutions ranging from corporate website, e-commerce, inventory system, social platform and many more.",
+      icon: <TbWorld size={32} color="#005180" />
+    },
+    {
+      field: "Mobile Application",
+      level: 100,
+      description: "Production of a hybrid application that can run natively on Android and iOS that suits your business needs.",
+      icon: <TbDeviceMobile size={32} color="#005180" />
+    },
+    {
+      field: "Cloud Computing",
+      level: 100,
+      description: "Plan, deploy, and optimize current infrastructure to level up your business with high availability and scalability.",
+      icon: <TbCloud size={32} color="#005180" />
+    },
+    /* {
+      field: "Automation",
+      level: 100,
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      icon: <TbTerminal2 size={32} color="#005180" />
+    }, */
+  ];
+
   return (
-    <div className="h-screen pb-20 relative text-slate-900 bg-stone-100 overflow-auto">
+    <div className="h-screen pb-14 relative flex flex-col text-slate-900 bg-stone-100 overflow-auto">
       <div className="flex justify-center items-center bg-profile bg-gray-900/60 bg-blend-multiply object-cover h-48 w-full bg-cover bg-center">
         <span className="px-5 flex flex-col">
           <FaQuoteLeft className="text-stone-200" />
@@ -28,7 +60,7 @@ export default function Contact() {
 
         <div className="p-1 bg-stone-100 rounded-full">
           <img
-            src="/memoji.png"
+            src="/profile.jpeg"
             className="h-[100px] w-[100px] rounded-full border-4 border-primary-lighter p-1" />
         </div>
 
@@ -39,28 +71,57 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="mt-2 px-10 flex flex-col space-y-1 text-sm leading-tight">
-        <span className="inline-flex items-center space-x-2">
-          <MdEmail className="w-5 h-5 text-slate-900" />
-          <a href="mailto:work@hnnazm.com">work@hnnazm.com</a>
-        </span>
-        <span className="inline-flex items-center space-x-2">
-          <MdSmartphone className="w-5 h-5 text-slate-900" />
-          <a href="tel:+60102216100">+60-102216100</a>
-        </span>
-        <span className="inline-flex items-center space-x-2">
-          <MdLink className="w-5 h-5 text-slate-900" />
-          <a href="https://www.hnnazm.com">hnnazm.com</a>
-        </span>
+      <div className="mt-2 px-10 flex flex-row items-center text-sm leading-tight">
+        <div className="grow flex flex-col justify-center space-y-1">
+          <span className="inline-flex items-center space-x-2">
+            <BiSolidFilePdf className="w-5 h-5 text-slate-900" />
+            <a href="/CV.pdf" download>Download CV</a>
+          </span>
+          <span className="inline-flex items-center space-x-2">
+            <MdLink className="w-5 h-5 text-slate-900" />
+            <a href="https://www.hnnazm.com">hnnazm.com</a>
+          </span>
+        </div>
+        <div className="shrink-0 relative p-2 flex flex-row items-center space-x-2 border-2 border-green-700 rounded-lg">
+          <span className="text-xs text-green-700 uppercase">Open to work</span>
+          <span className="absolute -top-[6px] -right-[6px] flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-600 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-700"></span>
+          </span>
+        </div>
       </div>
 
       <hr className="mt-4 mx-5" />
 
-      <div className="mt-4 px-5 flex flex-col space-y-2">
+      <div className="grow mt-4 px-5 flex flex-col space-y-2">
         <h3 className="text-sm font-semibold">Area of Expertise</h3>
-        <div>
-          <BubbleChart />
-        </div>
+        <Swiper
+          // @ts-ignore */
+          modules={[Autoplay, Pagination]}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: true,
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          spaceBetween={8}
+          slidesPerView={1}
+          className="w-full h-full"
+        >
+          {expertises.map((expertise) => (
+            <SwiperSlide
+              key={expertise.field}
+              className="bg-expertise bg-cover"
+            >
+              <div className="h-full w-full px-10 pt-8 flex flex-col justify-center items-center">
+                {expertise.icon}
+                <span className="text-xl text-primary-lighter font-bold">{expertise.field}</span>
+                <span className="grow text-xs text-primary-darker/50 text-center">{expertise.description}</span>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       <a

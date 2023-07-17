@@ -14,8 +14,7 @@ export default function Layout() {
         id="tsparticles"
         init={particlesInit}
         options={{
-          // preset: "fire",
-          fpsLimit: 40,
+          fpsLimit: 60,
           fullScreen: {
             enable: true,
             zIndex: -100
@@ -71,12 +70,12 @@ export default function Layout() {
           >
             &#47;&#47; Project
           </a>
-          <a
-            href="https://www.linkedin.com/in/hnnazm"
+          <NavLink
+            to="/contact"
             className="text-sm uppercase underline-offset-8 hover:underline font-chakraPetch"
           >
-            &#47;&#47; Profile
-          </a>
+            &#47;&#47; Contact
+          </NavLink>
         </nav>
       </header>
 

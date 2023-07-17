@@ -19,7 +19,8 @@ module.exports = {
         },
       },
       backgroundImage: {
-        "profile": "url('/bg.jpg')"
+        "profile": "url('/bg.jpg')",
+        "expertise": "url('/bg-expertise.png')"
       }
     },
   },

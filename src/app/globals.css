@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Chakra+Petch:ital@0;1&display=swap&family=Amatic+SC:wght@700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+span.swiper-pagination-bullet-active {
+  background-color: #005180;
+}

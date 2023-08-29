@@ -48,7 +48,7 @@ export default function Contact() {
 
   return (
     <div className="h-screen pb-14 relative flex flex-col text-slate-900 bg-stone-100 overflow-auto">
-      <div className="flex justify-center items-center bg-profile bg-gray-900/60 bg-blend-multiply object-cover h-48 md:h-72 w-full bg-cover bg-center md:bg-contain">
+      <div className="flex justify-center items-center bg-profile bg-gray-900/60 bg-blend-multiply object-cover h-48 md:h-72 w-full bg-cover bg-center">
         <span className="px-5 flex flex-col">
           <FaQuoteLeft className="text-stone-200" />
           <blockquote className="text-2xl md:text-4xl text-stone-200 font-amaticSC font-bold">
